@@ -1,4 +1,4 @@
-package dev.hnatiuk.car_scanner_android
+package dev.hnatiuk.carscanner
 
 import org.junit.Test
 

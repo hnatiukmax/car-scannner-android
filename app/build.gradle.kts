@@ -18,7 +18,7 @@ android {
     compileSdk = rootProject.extra["compileSdkVersion"] as Int
 
     defaultConfig {
-        applicationId = "dev.hnatiuk.car_scanner_android"
+        applicationId = "dev.hnatiuk.carscanner"
         minSdk = rootProject.extra["minSdkVersion"] as Int
         targetSdk = rootProject.extra["targetSdkVersion"] as Int
 

@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "car-scanner-android"
 include(":app")
+include(":core")

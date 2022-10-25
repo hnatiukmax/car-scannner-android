@@ -10,14 +10,14 @@ import dev.hnatiuk.core.presentation.base.view.BaseActivity
 
 @AndroidEntryPoint
 internal class WelcomeActivity :
-    BaseActivity<ActivityWelcomeBinding, WelcomeActivityViewModel, WelcomeEvent>() {
+    BaseActivity<ActivityWelcomeBinding, WelcomeViewModel, WelcomeEvent>() {
 
-    override val viewModel: WelcomeActivityViewModel by viewModels()
+    override val viewModel: WelcomeViewModel by viewModels()
 
     override val bindingFactory: LayoutInflate<ActivityWelcomeBinding>
         get() = ActivityWelcomeBinding::inflate
 
-    override fun WelcomeActivityViewModel.observeViewModel() {
+    override fun WelcomeViewModel.observeViewModel() {
         onOpenSignInPage.observe(this@WelcomeActivity) {
             startActivity(Intent(this@WelcomeActivity, AuthActivity::class.java))
         }

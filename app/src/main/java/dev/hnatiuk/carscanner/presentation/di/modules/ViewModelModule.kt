@@ -8,13 +8,13 @@ import dev.hnatiuk.carscanner.presentation.pages.carinfo.CarInfoActivityViewMode
 import com.sectumsempra.carinfo.presentation.pages.history.HistoryFragmentViewModel
 import com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerActivityViewModel
 import dev.hnatiuk.carscanner.presentation.pages.search.SearchFragmentViewModel
-import dev.hnatiuk.carscanner.presentation.pages.welcome.WelcomeActivityViewModel
+import dev.hnatiuk.carscanner.presentation.pages.welcome.WelcomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 internal val viewModelModule = module {
     viewModel { HistoryFragmentViewModel() }
-    viewModel { WelcomeActivityViewModel() }
+    viewModel { WelcomeViewModel() }
     viewModel { AuthViewModel() }
     viewModel { LoginFragmentViewModel(get()) }
     viewModel { RegisterFragmentViewModel(get()) }

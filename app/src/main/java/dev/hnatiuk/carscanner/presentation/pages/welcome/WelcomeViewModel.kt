@@ -10,7 +10,7 @@ import javax.inject.Inject
 internal sealed class WelcomeEvent : Event
 
 @HiltViewModel
-internal class WelcomeActivityViewModel @Inject constructor() : BaseViewModel<WelcomeEvent>() {
+internal class WelcomeViewModel @Inject constructor() : BaseViewModel<WelcomeEvent>() {
 
     val onOpenSignInPage = ActionLiveData<Unit>()
 

@@ -1,17 +1,19 @@
 package dev.hnatiuk.carscanner.presentation.application
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import dev.hnatiuk.carscanner.presentation.di.provideModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
+@HiltAndroidApp
 internal class CarScannerApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initServiceLocator()
+        //initServiceLocator()
     }
 
     private fun initServiceLocator() {

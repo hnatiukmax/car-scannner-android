@@ -14,7 +14,7 @@
 
     <!-- Main -->
     <color name="main_color">#1E549A</color>
-    <color name="main_background">#121212</color>
+    <color name="main_background">@color/white</color>
     <color name="gray">#E1E1E3</color>
 
     <!-- Background -->

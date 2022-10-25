@@ -1,10 +1,16 @@
 package dev.hnatiuk.carscanner.presentation.pages.welcome
 
-import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.hnatiuk.carscanner.domain.entity.AuthProvider
 import dev.hnatiuk.carscanner.presentation.common.ActionLiveData
+import dev.hnatiuk.core.presentation.base.viewmodel.BaseViewModel
+import dev.hnatiuk.core.presentation.base.viewmodel.Event
+import javax.inject.Inject
 
-internal class WelcomeActivityViewModel : ViewModel() {
+internal sealed class WelcomeEvent : Event
+
+@HiltViewModel
+internal class WelcomeActivityViewModel @Inject constructor() : BaseViewModel<WelcomeEvent>() {
 
     val onOpenSignInPage = ActionLiveData<Unit>()
 

@@ -1,33 +1,25 @@
 package dev.hnatiuk.carscanner.presentation.pages.welcome
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.observe
-import dev.hnatiuk.carscanner.R
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import dev.hnatiuk.carscanner.databinding.ActivityWelcomeBinding
 import dev.hnatiuk.carscanner.presentation.pages.authentication.AuthActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dev.hnatiuk.core.presentation.base.LayoutInflate
+import dev.hnatiuk.core.presentation.base.view.BaseActivity
 
-internal class WelcomeActivity : AppCompatActivity() {
+@AndroidEntryPoint
+internal class WelcomeActivity :
+    BaseActivity<ActivityWelcomeBinding, WelcomeActivityViewModel, WelcomeEvent>() {
 
-    private val viewModel: WelcomeActivityViewModel by viewModel()
-    private lateinit var binding: ActivityWelcomeBinding
+    override val viewModel: WelcomeActivityViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.AppTheme)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+    override val bindingFactory: LayoutInflate<ActivityWelcomeBinding>
+        get() = ActivityWelcomeBinding::inflate
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome)
-        binding.apply {
-            lifecycleOwner = this@WelcomeActivity
-            viewModel = this@WelcomeActivity.viewModel
-        }
-
-        viewModel.onOpenSignInPage.observe(this) {
-            startActivity(Intent(this, AuthActivity::class.java))
+    override fun WelcomeActivityViewModel.observeViewModel() {
+        onOpenSignInPage.observe(this@WelcomeActivity) {
+            startActivity(Intent(this@WelcomeActivity, AuthActivity::class.java))
         }
     }
 }

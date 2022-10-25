@@ -75,7 +75,7 @@ android {
     }
 
     buildFeatures {
-        //viewBinding = true
+        viewBinding = true
         dataBinding {
             isEnabled = true
         }

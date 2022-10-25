@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="selectableItemBackgroundRounded" format="reference" />
+
+    <declare-styleable name="InputEditTextView">
+        <attr name="iet_hint" format="string" />
+        <attr name="iet_toggleIcon" format="reference" />
+        <attr name="iet_toggleVisible" format="boolean" />
+        <attr name="iet_toggleEnabled" format="boolean" />
+        <attr name="iet_validationVisible" format="boolean" />
+        <attr name="android:imeOptions" />
+        <attr name="android:inputType" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchCardView">
+        <attr name="sc_logo" format="reference" />
+        <attr name="sc_icon" format="reference" />
+        <attr name="sc_icon_background" format="reference" />
+        <attr name="sc_title" format="string" />
+        <attr name="sc_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CarInfoParamView">
+        <attr name="cip_param" format="string" />
+        <attr name="cip_value" format="string" />
+        <attr name="cip_param_icon" format="reference" />
+    </declare-styleable>
+
+</resources>

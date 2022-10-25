@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/bookMarksFragment"
+        android:name="dev.hnatiuk.carscanner.presentation.pages.bookmarks.BookMarksFragment"
+        android:label="BookMarksFragment"
+        tools:layout="@layout/fragment_bookmarks" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="dev.hnatiuk.carscanner.presentation.pages.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/toNumberScannerFragment"
+            app:destination="@id/numberScannerFragment"
+            app:popUpTo="@id/searchFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.explore.ExploreFragment"
+        android:label="Explore Fragment" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="dev.hnatiuk.carscanner.presentation.pages.settings.SettingsFragment"
+        android:label="ExploreFragment" />
+
+    <fragment
+        android:id="@+id/numberScannerFragment"
+        android:name="dev.hnatiuk.carscanner.presentation.pages.numberscanner.NumberScannerActivity"
+        android:label="NumberScannerFragment"
+        tools:layout="@layout/activity_number_scanner" />
+
+</navigation>

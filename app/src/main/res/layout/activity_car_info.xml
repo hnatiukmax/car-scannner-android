@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="dev.hnatiuk.carscanner.presentation.pages.carinfo.CarInfoActivityViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin_large"
+
+            tools:context=".presentation.pages.carinfo.CarInfoActivity">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/logo_typing" />
+
+            <dev.hnatiuk.carscanner.presentation.view.CarInfoParamView
+                android:id="@+id/vendor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_large"
+                app:cip_param="Vendor"
+                app:value="@{viewModel.carInfo.vendor}" />
+
+            <dev.hnatiuk.carscanner.presentation.view.CarInfoParamView
+                android:id="@+id/model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_large"
+                app:cip_param="Model"
+                app:value="@{viewModel.carInfo.model}" />
+
+            <dev.hnatiuk.carscanner.presentation.view.CarInfoParamView
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_large"
+                app:cip_param="Year"
+                app:value="@{viewModel.carInfo.year}" />
+
+            <dev.hnatiuk.carscanner.presentation.view.CarInfoParamView
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_large"
+                app:cip_param="Color"
+                app:value="@{viewModel.carInfo.color}" />
+
+            <dev.hnatiuk.carscanner.presentation.view.CarInfoParamView
+                android:id="@+id/fuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_large"
+                app:cip_param="Fuel"
+                app:value="@{viewModel.carInfo.fuel}" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:showProgress="@{viewModel.isProgressVisible}" />
+
+    </FrameLayout>
+
+</layout>

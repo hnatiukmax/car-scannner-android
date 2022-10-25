@@ -7,4 +7,35 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Main -->
+    <color name="main_color">#1E549A</color>
+    <color name="main_background">#121212</color>
+    <color name="gray">#E1E1E3</color>
+
+    <!-- Background -->
+    <color name="background_input_edit_text">#252525</color>
+
+    <!-- Text -->
+    <color name="text_black">#313131</color>
+    <color name="primary_text_color">#3160B6</color>
+    <color name="secondary_text_color">#1C1C1C</color>
+    <color name="thirdly_text_color">#661C1C1C</color>
+    <color name="text_hint">#FFA6A29E</color>
+
+    <!-- Bottom Navigation -->
+    <color name="bottom_navigation_color">#FDFEFE</color>
+    <color name="bottom_navigation_item_unselected">#C2C2C2</color>
+    <color name="bottom_navigation_item_selected">#0676ED</color>
+
+    <!-- Widget -->
+    <color name="error_color">@android:color/holo_red_light</color>
+    <color name="divider_color">#4DC6C6C6</color>
+    <color name="auth_stroke">@color/divider_color</color>
+    <color name="back_button">#ededed</color>
+
 </resources>

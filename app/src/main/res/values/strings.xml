@@ -3,4 +3,59 @@
     <string name="app_name_release">car-scanner</string>
     <string name="app_name_debug">car-scanner-debug</string>
 
+    <!-- Bottom Navigation -->
+    <string name="bottom_navigation_bookmark">Bookmark</string>
+    <string name="bottom_navigation_history">History</string>
+    <string name="bottom_navigation_search">Search</string>
+    <string name="bottom_navigation_explore">Explore</string>
+    <string name="bottom_navigation_settings">Settings</string>
+
+    <!-- Search Card -->
+    <string name="search_card_scanning_title">Using camera</string>
+    <string name="search_card_scanning_description">Point the camera at the car number</string>
+    <string name="search_card_typing_title">Manually</string>
+    <string name="search_card_typing_description">Type the auto number manually</string>
+
+    <!-- Exceptions -->
+    <string name="exception_something_bag_happened">Something bad happen</string>
+    <string name="exception_internet_connection">You have problem with network connection</string>
+    <string name="exception_unknown_api_response">Some problem with server side response</string>
+    <string name="exception_client_side_error">Some problems on client side</string>
+    <string name="exception_server_side_error">Some problems on server side</string>
+    <string name="exception_facebook_auth_failed">Facebook authentication failed</string>
+    <string name="exception_google_auth_failed">Google authentication failed</string>
+    <string name="exception_no_access">No access</string>
+    <string name="exception_token_is_required">Token is required</string>
+    <string name="exception_parsing_response_error">Parsing API response failed</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">Simple. Fast. Inform.</string>
+    <string name="welcome_continue_with_email">Continue with email</string>
+    <string name="welcome_skip_for_now">Skip for now</string>
+    <string name="welcome_find_information">Find information about car at the moment</string>
+    <string name="welcome_facebook">Facebook</string>
+    <string name="welcome_google">Google</string>
+
+    <!-- Login -->
+    <string name="login_welcome_sign_in">Welcome sign in</string>
+    <string name="login_after_login">After logging in, remove already completed tasks and write down new ones</string>
+    <string name="login_email">Please, enter your email</string>
+    <string name="login_enter_your_password">Please, enter your password</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_no_account">No account? Register.</string>
+    <string name="login_success">Authentication success</string>
+
+    <!-- Register -->
+    <string name="register_welcome_sign_up">Welcome sign up</string>
+    <string name="register_after_registration">After registration, do not delay and write down your goals</string>
+    <string name="register_name">Please, enter your name</string>
+    <string name="register_password_characters">Not less 5 characters</string>
+    <string name="register_confirm_password">Confirm password</string>
+    <string name="register_sign_up">Sign Up</string>
+    <string name="register_already_have_an_account">Already have an account?</string>
+
+    <!-- Number Scanner -->
+    <string name="number_scanner_title">Scanning number</string>
+    <string name="number_scanner_description">Keep car number in sight</string>
+
 </resources>

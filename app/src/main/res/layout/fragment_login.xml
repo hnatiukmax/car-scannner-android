@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="dev.hnatiuk.carscanner.presentation.pages.authentication.login.LoginFragmentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:paddingHorizontal="@dimen/auth_horizontal_margin"
+        tools:paddingTop="@dimen/auth_horizontal_margin">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/welcomeLogin"
+            style="@style/AppTheme.Text.Title"
+            android:layout_marginTop="@dimen/default_margin_small"
+            android:text="@string/login_welcome_sign_in" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/introductionLabelSecond"
+            style="@style/AppTheme.Text.Description"
+            android:layout_marginTop="@dimen/default_margin_small"
+            android:gravity="center_horizontal"
+            android:text="@string/login_after_login" />
+
+        <dev.hnatiuk.carscanner.presentation.view.InputEditTextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/auth_vertical_margin_medium"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            app:hasError="@{viewModel.emailHasError}"
+            app:iet_hint="@string/login_email"
+            app:iet_toggleEnabled="false"
+            app:iet_toggleIcon="@drawable/ic_email"
+            app:iet_toggleVisible="true"
+            app:iet_validationVisible="true"
+            app:text="@={viewModel.email}" />
+
+        <dev.hnatiuk.carscanner.presentation.view.InputEditTextView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_large"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            app:hasError="@{viewModel.passwordHasError}"
+            app:iet_hint="@string/login_enter_your_password"
+            app:iet_toggleEnabled="true"
+            app:iet_toggleIcon="@drawable/ic_password_off"
+            app:iet_toggleVisible="true"
+            app:iet_validationVisible="true"
+            app:text="@={viewModel.password}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/login"
+            style="@style/AppTheme.Button.Filled"
+            android:layout_marginTop="@dimen/auth_vertical_margin_small"
+            android:onClick="@{() -> viewModel.onLogInClick()}"
+            android:text="@string/login_sign_in" />
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/progress"
+            style="@style/AppTheme.ProgressLine"
+            android:layout_marginTop="@dimen/default_margin_large"
+            android:visibility="gone"
+            app:showProgress="@{viewModel.isProgressVisible}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/noAccount"
+            style="@style/AppTheme.TextButton"
+            android:layout_marginTop="@dimen/default_margin_small"
+            android:clickable="@{!viewModel.isProgressVisible()}"
+            android:text="@string/login_no_account"
+            android:textColor="@color/text_hint" />
+
+    </LinearLayout>
+
+</layout>

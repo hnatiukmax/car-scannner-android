@@ -10,7 +10,15 @@ enum class Lib(val version: String, val lib: String) {
     HiltAndroid(version = "2.42", lib = "com.google.dagger:hilt-android"),
     HiltCompiler(version = "2.42", lib = "com.google.dagger:hilt-compiler"),
     //Navigation
-    Cicerone(version = "7.1", lib = "com.github.terrakok:cicerone");
+    Cicerone(version = "7.1", lib = "com.github.terrakok:cicerone"),
+
+    //Network
+    Retrofit(version = "2.9.0", lib = "com.squareup.retrofit2:retrofit"),
+    RetrofitMoshiConverter(version = "2.9.0", lib = "com.squareup.retrofit2:converter-moshi"),
+
+    KoinCore(version = "3.2.1", lib = "io.insert-koin:koin-core"),
+    KoinAndroid(version = "2.1.6", lib = "io.insert-koin:koin-android"),
+    KoinViewModel(version = "2.1.6", lib = "io.insert-koin:koin-androidx-viewmodel");
 
     val libName get() = this.toString().decapitalize()
 }

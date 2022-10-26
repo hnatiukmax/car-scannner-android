@@ -145,6 +145,7 @@ dependencies {
     // or only import the main APIs for the underlying toolkit systems,
     // such as input and measurement/layout
     implementation("androidx.compose.ui:ui:1.2.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Android Studio Preview support
     implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")

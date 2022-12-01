@@ -7,10 +7,10 @@ import dev.hnatiuk.core.presentation.base.viewmodel.BaseViewModel
 import dev.hnatiuk.core.presentation.base.viewmodel.Event
 import javax.inject.Inject
 
-internal sealed class WelcomeEvent : Event
+sealed class WelcomeEvent : Event
 
 @HiltViewModel
-internal class WelcomeViewModel @Inject constructor() : BaseViewModel<WelcomeEvent>() {
+class WelcomeViewModel @Inject constructor() : BaseViewModel<WelcomeEvent>() {
 
     val onOpenSignInPage = ActionLiveData<Unit>()
 
@@ -19,10 +19,10 @@ internal class WelcomeViewModel @Inject constructor() : BaseViewModel<WelcomeEve
     }
 
     fun onSkipNowClick() {
-        //TODO to main screen.
+
     }
 
     fun onSocialAuthClick(authProvider: AuthProvider) {
-        //TODO call social provider to get token
+
     }
 }

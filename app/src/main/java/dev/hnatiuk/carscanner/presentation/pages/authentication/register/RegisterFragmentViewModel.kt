@@ -2,6 +2,7 @@ package dev.hnatiuk.carscanner.presentation.pages.authentication.register
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.hnatiuk.carscanner.domain.extensions.doOnError
 import dev.hnatiuk.carscanner.domain.extensions.doOnSuccess
 import dev.hnatiuk.carscanner.domain.repository.AuthRepository
@@ -12,12 +13,17 @@ import dev.hnatiuk.carscanner.presentation.common.ActionLiveData
 import dev.hnatiuk.carscanner.presentation.common.not
 import dev.hnatiuk.carscanner.presentation.common.valueOrEmpty
 import dev.hnatiuk.carscanner.presentation.common.withProgress
-import dev.hnatiuk.carscanner.presentation.pages.base.BaseViewModel
+import dev.hnatiuk.core.presentation.base.viewmodel.BaseViewModel
+import dev.hnatiuk.core.presentation.base.viewmodel.Event
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-internal class RegisterFragmentViewModel(
-    private val authRepository: AuthRepository
-) : BaseViewModel() {
+sealed interface RegisterEvent : Event
+
+@HiltViewModel
+internal class RegisterFragmentViewModel @Inject constructor(
+    //private val authRepository: AuthRepository
+) : BaseViewModel<RegisterEvent>() {
 
     val onRegister = ActionLiveData<Unit>()
 
@@ -35,9 +41,9 @@ internal class RegisterFragmentViewModel(
         onCloseKeyboard.call()
         viewModelScope.launch {
             isProgressVisible.withProgress {
-                authRepository.register(userName.valueOrEmpty, email.valueOrEmpty, password.valueOrEmpty)
-                    .doOnSuccess { onShowMessage.value = it.name }
-                    .doOnError { onShowError.value = it }
+//                authRepository.register(userName.valueOrEmpty, email.valueOrEmpty, password.valueOrEmpty)
+//                    .doOnSuccess { onShowMessage.value = it.name }
+//                    .doOnError { onShowError.value = it }
             }
         }
     }

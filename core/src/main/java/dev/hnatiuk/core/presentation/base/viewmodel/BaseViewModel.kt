@@ -2,10 +2,19 @@ package dev.hnatiuk.core.presentation.base.viewmodel
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.hnatiuk.core.presentation.utils.SingleLiveEvent
 
 abstract class BaseViewModel<E : Event> : ViewModel() {
+
+    /**
+     * Base live variables, that are available for observing in [BaseActivity] or [BaseFragment].
+     */
+    val isProgressVisible = MutableLiveData<Boolean>()
+    val onShowError = MutableLiveData<Exception>()
+    val onShowMessage = MutableLiveData<Any>()
+    val onCloseKeyboard = SingleLiveEvent<Unit>()
 
     private val _event = SingleLiveEvent<E>()
     private val _onShowToastMessage = SingleLiveEvent<Message>()

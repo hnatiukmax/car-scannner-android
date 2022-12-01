@@ -1,15 +1,20 @@
 package dev.hnatiuk.carscanner.presentation.pages.authentication.register
 
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
+import dev.hnatiuk.carscanner.databinding.FragmentRegisterBinding
 import dev.hnatiuk.carscanner.presentation.pages.authentication.AuthFragmentType
 import dev.hnatiuk.carscanner.presentation.pages.authentication.OnAuthTypeChangeListener
-import dev.hnatiuk.carscanner.presentation.pages.base.BaseFragment
-import dev.hnatiuk.carscanner.presentation.pages.base.Depends
-import dev.hnatiuk.carscanner.R
-import dev.hnatiuk.carscanner.databinding.FragmentRegisterBinding
+import dev.hnatiuk.core.presentation.base.Inflate
+import dev.hnatiuk.core.presentation.base.view.BaseFragment
 
-@Depends(R.layout.fragment_register, RegisterFragmentViewModel::class)
+@AndroidEntryPoint
 internal class RegisterFragment :
-    BaseFragment<FragmentRegisterBinding, RegisterFragmentViewModel>() {
+    BaseFragment<FragmentRegisterBinding, RegisterFragmentViewModel, RegisterEvent>() {
+
+    override val viewModel: RegisterFragmentViewModel by viewModels()
+    override val inflate: Inflate<FragmentRegisterBinding>
+        get() = FragmentRegisterBinding::inflate
 
     companion object {
         fun newInstance() = RegisterFragment()

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="dev.hnatiuk.carscanner">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".presentation.application.CarScannerApplication"
         android:allowBackup="true"

@@ -1,9 +1,12 @@
 package dev.hnatiuk.carscanner.presentation.pages.welcome;
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -11,9 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,9 +26,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.hnatiuk.carscanner.R.color
 import dev.hnatiuk.carscanner.R.drawable
 import dev.hnatiuk.carscanner.R.string
+import dev.hnatiuk.carscanner.domain.entity.AuthProvider
 import dev.hnatiuk.carscanner.presentation.theme.textStyleAction
 import dev.hnatiuk.carscanner.presentation.theme.textStyleDescription
 import dev.hnatiuk.carscanner.presentation.theme.textStyleMainButton
@@ -34,12 +41,13 @@ import dev.hnatiuk.carscanner.presentation.theme.textStyleMainButton
     showSystemUi = true
 )
 @Composable
-fun Welcome() {
+fun WelcomeScreen(viewModel: WelcomeViewModel = viewModel()) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .padding(horizontal = 24.dp)
+            .background(color = colorResource(color.white))
     ) {
         val (logo, title, continueButton, googleButton, facebookButton, skipButton) = createRefs()
 
@@ -75,7 +83,7 @@ fun Welcome() {
                     end.linkTo(parent.end)
                     bottom.linkTo(googleButton.top, margin = 16.dp)
                 },
-            onClick = { /*TODO*/ },
+            onClick = { viewModel.onSignInClick() },
             colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(color.main_color))
         ) {
             Text(
@@ -94,7 +102,8 @@ fun Welcome() {
                 bottom.linkTo(skipButton.top, margin = 48.dp)
             },
             text = stringResource(string.welcome_google),
-            icon = painterResource(drawable.ic_google)
+            icon = painterResource(drawable.ic_google),
+            onClick = { viewModel.onSocialAuthClick(AuthProvider.GOOGLE) }
         )
 
         AuthButton(
@@ -105,10 +114,11 @@ fun Welcome() {
                 bottom.linkTo(googleButton.bottom)
             },
             text = stringResource(string.welcome_facebook),
-            icon = painterResource(drawable.ic_facebook)
+            icon = painterResource(drawable.ic_facebook),
+            onClick = { viewModel.onSocialAuthClick(AuthProvider.FACEBOOK) }
         )
 
-        Text(
+        ClickableText(
             modifier = Modifier
                 .padding(12.dp)
                 .constrainAs(skipButton) {
@@ -116,10 +126,10 @@ fun Welcome() {
                     end.linkTo(parent.end)
                     bottom.linkTo(parent.bottom, margin = 24.dp)
                 },
-            text = stringResource(string.welcome_skip_for_now),
+            text = AnnotatedString(stringResource(string.welcome_skip_for_now)),
             style = textStyleAction(),
             maxLines = 1,
-            textAlign = TextAlign.Center,
+            onClick = { viewModel.onSkipNowClick() }
         )
     }
 }
@@ -128,7 +138,8 @@ fun Welcome() {
 fun AuthButton(
     modifier: Modifier,
     text: String,
-    icon: Painter
+    icon: Painter,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -138,9 +149,14 @@ fun AuthButton(
                 color = colorResource(color.auth_stroke),
                 shape = RoundedCornerShape(4.dp)
             )
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { onClick() }
+                )
+            }
             .then(modifier),
         horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
             painter = icon,

@@ -18,7 +18,8 @@
     <color name="gray">#E1E1E3</color>
 
     <!-- Background -->
-    <color name="background_input_edit_text">#252525</color>
+    <color name="background_input_edit_text_dark">#252525</color>
+    <color name="background_input_edit_text">#1AA6A29E</color>
 
     <!-- Text -->
     <color name="text_black">#313131</color>

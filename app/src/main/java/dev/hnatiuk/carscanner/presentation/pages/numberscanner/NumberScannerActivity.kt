@@ -9,24 +9,29 @@ import android.content.pm.PackageManager
 import android.util.SparseArray
 import android.view.SurfaceHolder
 import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.util.forEach
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.text.TextBlock
 import com.google.android.gms.vision.text.TextRecognizer
-import dev.hnatiuk.carscanner.domain.entity.isCorrectAsNumber
-import com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerActivityViewModel
-import dev.hnatiuk.carscanner.R
+import dagger.hilt.android.AndroidEntryPoint
 import dev.hnatiuk.carscanner.databinding.ActivityNumberScannerBinding
+import dev.hnatiuk.carscanner.domain.entity.isCorrectAsNumber
 import dev.hnatiuk.carscanner.presentation.extensions.setFullScreen
-import dev.hnatiuk.carscanner.presentation.pages.base.BaseToolbarActivity
-import dev.hnatiuk.carscanner.presentation.pages.base.Depends
+import dev.hnatiuk.core.presentation.base.LayoutInflate
+import dev.hnatiuk.core.presentation.base.view.BaseActivity
 import org.jetbrains.anko.displayMetrics
 
-@Depends(R.layout.activity_number_scanner, NumberScannerActivityViewModel::class)
+@AndroidEntryPoint
 internal class NumberScannerActivity :
-    BaseToolbarActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
+    BaseActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel, NumberScannerEvent>() {
+
+    override val bindingFactory: LayoutInflate<ActivityNumberScannerBinding>
+        get() = ActivityNumberScannerBinding::inflate
+
+    override val viewModel: NumberScannerActivityViewModel by viewModels()
 
     companion object {
         private const val CAR_NUMBER = "CAR_NUMBER"
@@ -35,10 +40,10 @@ internal class NumberScannerActivity :
     private lateinit var cameraSource: CameraSource
     private lateinit var textRecognizer: TextRecognizer
 
-    override val backButtonIconRes = R.drawable.ic_back_white
+    //override val backButtonIconRes = R.drawable.ic_back_white
 
     override fun ActivityNumberScannerBinding.initUI() {
-        viewModel = this@NumberScannerActivity.viewModel
+        //viewModel = this@NumberScannerActivity.viewModel
         setFullScreen()
 
         buildScannerTools()
@@ -76,7 +81,7 @@ internal class NumberScannerActivity :
     private fun finishWithResult(result: String) {
         val intent = Intent().apply { putExtra(CAR_NUMBER, result) }
         setResult(Activity.RESULT_OK, intent)
-        finish()
+        //finish()
     }
 
     private inner class SurfaceCameraCallback : SurfaceHolder.Callback {

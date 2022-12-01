@@ -38,7 +38,7 @@
 
     <!-- Login -->
     <string name="login_welcome_sign_in">Welcome sign in</string>
-    <string name="login_after_login">After logging in, remove already completed tasks and write down new ones</string>
+    <string name="login_after_login">After logging in, you can get info about any cars</string>
     <string name="login_email">Please, enter your email</string>
     <string name="login_enter_your_password">Please, enter your password</string>
     <string name="login_sign_in">Sign In</string>
@@ -47,7 +47,7 @@
 
     <!-- Register -->
     <string name="register_welcome_sign_up">Welcome sign up</string>
-    <string name="register_after_registration">After registration, do not delay and write down your goals</string>
+    <string name="register_after_registration">After registration, do not delay and scan car plates</string>
     <string name="register_name">Please, enter your name</string>
     <string name="register_password_characters">Not less 5 characters</string>
     <string name="register_confirm_password">Confirm password</string>

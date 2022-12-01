@@ -7,6 +7,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_bookmark"
         android:title="@string/bottom_navigation_bookmark"
+        android:visible="false"
         app:showAsAction="always" />
 
     <item
@@ -26,6 +27,7 @@
     <item
         android:id="@+id/exploreFragment"
         android:enabled="true"
+        android:visible="false"
         android:icon="@drawable/ic_explore"
         android:title="@string/bottom_navigation_explore"
         app:showAsAction="always" />

@@ -1,5 +1,11 @@
 package dev.hnatiuk.carscanner.presentation.pages.search
 
-import dev.hnatiuk.carscanner.presentation.pages.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.hnatiuk.core.presentation.base.viewmodel.BaseViewModel
+import dev.hnatiuk.core.presentation.base.viewmodel.Event
+import javax.inject.Inject
 
-internal class SearchFragmentViewModel : BaseViewModel()
+sealed interface HomeEvent : Event
+
+@HiltViewModel
+internal class SearchFragmentViewModel @Inject constructor() : BaseViewModel<HomeEvent>()
